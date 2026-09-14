@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — lógica de threshold implementada (disco ≥90% usado, node offline); não validado visualmente em navegador
 
 Blocked by: 08, 09
 

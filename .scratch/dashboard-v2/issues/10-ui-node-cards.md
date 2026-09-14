@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — build limpo, `/api/stats` retorna o payload esperado. **Não validado visualmente em navegador** (ambiente headless, sem browser disponível) — vale abrir no celular/desktop antes de dar como definitivo.
 
 Blocked by: 08, 09
 
