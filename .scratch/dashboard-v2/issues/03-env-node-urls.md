@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — `.env` criado nos dois Nodes; falta issue 10 fazer `app/page.tsx` ler `NEXT_PUBLIC_DEV_NODE_URL` em vez do hardcode (ainda não mexido no client)
 
 # Config `.env` pros IPs/URLs dos Nodes
 

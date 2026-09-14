@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: needs-info — código implementado (junto com a 04), mas `termux-api` só está funcional depois que o app companion for instalado nos dois celulares (issue 05, ação do usuário). `localIp`/`peerLatencyMs`/`externalLatencyMs` já validados; `battery`/wifi ainda retornam `null` como esperado até a 05 destravar.
 
 Blocked by: 03, 05
 

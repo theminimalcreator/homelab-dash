@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — validado ao vivo nos dois Nodes, inclusive o bug do `df -h /` corrigido
 
 # Collector: hardware + services (sem dependências externas)
 

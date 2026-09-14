@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14)
 
 # Fix Agent deploy no Dev Node
 

@@ -1,4 +1,7 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14)
+
+**Feito:** `pkg install git`, clonado o repo via `git bundle` (sem precisar de credencial GitHub no Poco), `npm install` + `npm run build -- --webpack` (achado: Turbopack, padrão do Next 16, não builda em android/arm64 — só tem binding WASM, Turbopack exige nativo; precisa forçar webpack), testado numa porta separada, e só então trocado o PM2 pra apontar pro clone novo. Cópia solta antiga preservada em `~/homelab-dash-old-loose-copy` (backup, não apagada). Sem downtime perceptível na troca.
+**Pendente:** decidir quando apagar o backup antigo; nenhum deploy automatizado ainda (deploy = `git pull && npm install && npm run build -- --webpack && pm2 restart dashboard`, manual por enquanto).
 
 # Fix deploy do Master no Poco
 

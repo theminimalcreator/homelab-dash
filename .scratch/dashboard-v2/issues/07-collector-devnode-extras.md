@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — `claudeCodeActive` validado (detectou a própria sessão rodando); `wakeLock.requestedAtBoot` implementado, mas `requestWakeLockOnce()` ainda não é chamado por ninguém no startup do Agent (falta ligar isso na issue 08)
 
 # Collector: extras exclusivos do Dev Node
 
