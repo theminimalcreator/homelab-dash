@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — deployado e validado ao vivo nos dois Nodes, ambos retornando o contrato novo em seções
 
 Blocked by: 01, 04, 06, 07
 
