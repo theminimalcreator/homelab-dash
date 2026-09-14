@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { SshShortcut } from "@/components/ssh-shortcut";
 import type { NodeStats } from "@/lib/types";
 import { formatBytes, memPercent, cpuLoadPercent, formatUptime } from "@/lib/format";
 
@@ -57,9 +58,12 @@ export function NodeCard({ title, subtitle, online, stats }: NodeCardProps) {
           <CardTitle>{title}</CardTitle>
           <CardDescription>{subtitle}</CardDescription>
         </div>
-        <Badge variant={online ? "default" : "destructive"}>
-          {online ? "online" : "offline"}
-        </Badge>
+        <div className="flex items-center gap-2">
+          <SshShortcut ip={stats?.network.localIp ?? null} />
+          <Badge variant={online ? "default" : "destructive"}>
+            {online ? "online" : "offline"}
+          </Badge>
+        </div>
       </CardHeader>
       <CardContent className="space-y-6">
         {!stats ? (
