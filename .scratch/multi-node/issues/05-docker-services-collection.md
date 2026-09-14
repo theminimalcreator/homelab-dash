@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — testado com mock de `child_process.exec` simulando `docker ps`/`docker stats`/`docker inspect` (container rodando com stats casando corretamente, container parado sem stats mas com restart count); teste real fim-a-fim só na issue 14, quando existir Docker de verdade pra apontar
 
 Blocked by: 04
 

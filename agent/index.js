@@ -18,7 +18,7 @@ http.createServer(async (req, res) => {
   try {
     const stats = await collectNodeStats({
       peerUrl: process.env.MASTER_URL,
-      capabilities: { tracksClaudeCode: true, tracksWakeLock: true },
+      capabilities: { tracksClaudeCode: true, tracksWakeLock: true, servicesRuntime: 'pm2' },
     });
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(stats));
