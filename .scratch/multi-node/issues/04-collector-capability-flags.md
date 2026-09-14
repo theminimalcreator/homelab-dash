@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — `tsc --noEmit` e smoke-test local confirmam comportamento idêntico ao `role` antigo; lint pré-existente (require() em CJS) não é regressão, confirmado via `git stash`
 
 # Generalizar `role` do collector pra flags de capacidade
 

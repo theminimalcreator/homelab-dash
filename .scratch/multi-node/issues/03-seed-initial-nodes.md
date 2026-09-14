@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — migrations 002/003 aplicadas no Master, 3 linhas confirmadas via `SELECT` (Master `is_self=t`, VPS em rascunho com `stats_url` NULL)
 
 Blocked by: 02
 

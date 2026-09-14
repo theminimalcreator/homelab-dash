@@ -16,7 +16,10 @@ requestWakeLockOnce();
 http.createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   try {
-    const stats = await collectNodeStats({ role: 'dev', peerUrl: process.env.MASTER_URL });
+    const stats = await collectNodeStats({
+      peerUrl: process.env.MASTER_URL,
+      capabilities: { tracksClaudeCode: true, tracksWakeLock: true },
+    });
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(stats));
   } catch {

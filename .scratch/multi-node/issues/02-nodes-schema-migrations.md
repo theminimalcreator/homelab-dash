@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — migration aplicada de verdade no Postgres do Master via `npm run migrate`, tabela `nodes` confirmada com `\d nodes`, segunda rodada é no-op
 
 Blocked by: 01
 
