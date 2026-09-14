@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "migrate": "node scripts/migrate.js"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -14,6 +15,7 @@
     "cn": "^0.3.0",
     "lucide-react": "^1.46.0",
     "next": "16.3.5",
+    "pg": "^8.23.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "shadcn": "^4.21.0",
