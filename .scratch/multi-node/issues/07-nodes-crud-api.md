@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — testado fim-a-fim (`next dev` local + túnel SSH pro Postgres do Master) contra o database real: GET lista os 3 seeds, POST valida campos obrigatórios e cria, GET por id, PATCH parcial, conflito de `is_self` devolve 400 (não 500), validação de `sshPort`, DELETE + 404 depois. Nó de teste criado e apagado, os 3 originais intactos.
 
 Blocked by: 02
 
