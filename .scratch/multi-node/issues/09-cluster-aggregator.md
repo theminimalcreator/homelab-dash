@@ -1,6 +1,10 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — testado contra o Postgres real (túnel SSH): Master via coleta em processo, Dev Node via HTTP real (token ainda não obrigatório, ver Comments), VPS `offline` sem tentar fetch (sem `stats_url`). `tsc`/`eslint` limpos.
 
 Blocked by: 02, 06
+
+## Comments
+
+**2026-09-14** — O Dev Node ainda não exige `X-Node-Token` porque o processo do `alpine-agent` ao vivo é o código de antes da issue 06 (o deploy daquela issue foi segurado de propósito). Vou ativar o token de verdade (gerar, salvar no Postgres via `/api/nodes`, colocar no `.env` do Dev Node, e só então deployar 06+09+10 juntas) — ver issue 10.
 
 # Endpoint agregador `/api/cluster`
 
