@@ -4,9 +4,6 @@ import { useState } from "react";
 import { Terminal, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const SSH_USER = process.env.NEXT_PUBLIC_SSH_USER;
-const SSH_PORT = process.env.NEXT_PUBLIC_SSH_PORT ?? "8022";
-
 function legacyCopy(text: string): boolean {
   const textarea = document.createElement("textarea");
   textarea.value = text;
@@ -24,12 +21,18 @@ function legacyCopy(text: string): boolean {
   return ok;
 }
 
-export function SshShortcut({ ip }: { ip: string | null }) {
+type SshShortcutProps = {
+  ip: string | null;
+  sshUser: string | null;
+  sshPort: number | null;
+};
+
+export function SshShortcut({ ip, sshUser, sshPort }: SshShortcutProps) {
   const [copied, setCopied] = useState(false);
 
-  if (!ip || !SSH_USER) return null;
+  if (!ip || !sshUser) return null;
 
-  const command = `ssh -p ${SSH_PORT} ${SSH_USER}@${ip}`;
+  const command = `ssh -p ${sshPort ?? 22} ${sshUser}@${ip}`;
 
   const handleClick = async () => {
     let ok = false;

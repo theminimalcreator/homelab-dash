@@ -14,9 +14,11 @@ import { formatBytes, memPercent, cpuLoadPercent, formatUptime } from "@/lib/for
 
 type NodeCardProps = {
   title: string;
-  subtitle: string;
+  subtitle: string | null;
   online: boolean;
   stats: NodeStats | null;
+  sshUser: string | null;
+  sshPort: number | null;
 };
 
 function Stat({ label, value }: { label: string; value: ReactNode }) {
@@ -50,16 +52,16 @@ function MeterRow({
   );
 }
 
-export function NodeCard({ title, subtitle, online, stats }: NodeCardProps) {
+export function NodeCard({ title, subtitle, online, stats, sshUser, sshPort }: NodeCardProps) {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
           <CardTitle>{title}</CardTitle>
-          <CardDescription>{subtitle}</CardDescription>
+          {subtitle && <CardDescription>{subtitle}</CardDescription>}
         </div>
         <div className="flex items-center gap-2">
-          <SshShortcut ip={stats?.network.localIp ?? null} />
+          <SshShortcut ip={stats?.network.localIp ?? null} sshUser={sshUser} sshPort={sshPort} />
           <Badge variant={online ? "default" : "destructive"}>
             {online ? "online" : "offline"}
           </Badge>

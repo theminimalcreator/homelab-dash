@@ -7,13 +7,29 @@ import type { NodeStats } from '@/lib/types';
 const FETCH_TIMEOUT_MS = 5000;
 
 type ClusterNodeEntry = {
-  node: { id: number; name: string; kind: string; subtitle: string | null };
+  node: {
+    id: number;
+    name: string;
+    kind: string;
+    subtitle: string | null;
+    sshUser: string | null;
+    sshPort: number | null;
+  };
   online: boolean;
   stats: NodeStats | null;
 };
 
+// authToken is deliberately left out — this payload reaches the browser,
+// and that secret never needs to.
 function publicNode(node: NodeRecord): ClusterNodeEntry['node'] {
-  return { id: node.id, name: node.name, kind: node.kind, subtitle: node.subtitle };
+  return {
+    id: node.id,
+    name: node.name,
+    kind: node.kind,
+    subtitle: node.subtitle,
+    sshUser: node.sshUser,
+    sshPort: node.sshPort,
+  };
 }
 
 async function fetchStats(url: string, token: string | null): Promise<NodeStats> {

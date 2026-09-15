@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — testado contra o Postgres real: `GET /` 200, `/api/cluster` retornando `sshUser`/`sshPort` por Node (o botão SSH agora é por Node, não mais env global — mudança adicional não listada originalmente nesta issue, mas necessária pra fazer sentido com N nodes heterogêneos). `app/api/stats/route.ts` removido (superado pelo agregador, ninguém mais o chamava). Não validado visualmente em browser (mesma limitação da issue 08).
 
 Blocked by: 09
 
