@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — `tsc`/`eslint` limpos. `ServiceStat.runtime` já vinha preenchido desde a issue 05, só faltava expor na UI.
 
 Blocked by: 05, 10
 

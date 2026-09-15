@@ -21,6 +21,7 @@ export function ServicesTable({ rows }: ServicesTableProps) {
         <TableRow>
           <TableHead>Node</TableHead>
           <TableHead>Nome</TableHead>
+          <TableHead>Runtime</TableHead>
           <TableHead>Status</TableHead>
           <TableHead>CPU</TableHead>
           <TableHead>RAM</TableHead>
@@ -31,7 +32,7 @@ export function ServicesTable({ rows }: ServicesTableProps) {
       <TableBody>
         {rows.length === 0 ? (
           <TableRow>
-            <TableCell colSpan={7} className="text-center text-muted-foreground">
+            <TableCell colSpan={8} className="text-center text-muted-foreground">
               Nenhum serviço disponível
             </TableCell>
           </TableRow>
@@ -40,6 +41,9 @@ export function ServicesTable({ rows }: ServicesTableProps) {
             <TableRow key={`${nodeName}-${service.name}`}>
               <TableCell className="text-muted-foreground">{nodeName}</TableCell>
               <TableCell className="font-medium">{service.name}</TableCell>
+              <TableCell>
+                <Badge variant="outline">{service.runtime}</Badge>
+              </TableCell>
               <TableCell>
                 <Badge variant={service.status === "online" ? "default" : "destructive"}>
                   {service.status}

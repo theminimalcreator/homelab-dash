@@ -5,6 +5,7 @@ export type ServiceStat = {
   mem: number;
   restarts: number;
   uptimeMs: number | null;
+  runtime: "pm2" | "docker";
 };
 
 export type NodeStats = {
