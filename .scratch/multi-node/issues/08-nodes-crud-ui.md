@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — `tsc`/`eslint` limpos, `GET /nodes` 200 sem erro de servidor contra o Postgres real (túnel SSH). **Não validado visualmente num browser de verdade** — ambiente onde rodo (Termux/proot headless) não tem Chrome/Chromium nem Playwright/Puppeteer instalado, mesma limitação que as issues 10-13 do `dashboard-v2` antigo já tinham registrado. Vale abrir `http://<master>:3000/nodes` manualmente antes de considerar 100% ok.
 
 Blocked by: 07
 
