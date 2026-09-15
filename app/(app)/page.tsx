@@ -63,7 +63,7 @@ export default function Dashboard() {
   );
 
   return (
-    <main className="min-h-screen bg-background p-8 font-mono text-foreground">
+    <main className="bg-background p-8 font-mono text-foreground">
       <div className="mx-auto max-w-6xl space-y-6">
         <h1 className="text-2xl font-bold">Homelab Cluster</h1>
 

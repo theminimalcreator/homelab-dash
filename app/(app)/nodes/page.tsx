@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { NodesTable } from "@/components/nodes-table";
 import { NodeFormDialog } from "@/components/node-form-dialog";
 import { Button } from "@/components/ui/button";
@@ -56,15 +55,10 @@ export default function NodesPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-8 font-mono text-foreground">
+    <main className="bg-background p-8 font-mono text-foreground">
       <div className="mx-auto max-w-6xl space-y-6">
         <div className="flex items-center justify-between">
-          <div className="space-y-1">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
-              ← Dashboard
-            </Link>
-            <h1 className="text-2xl font-bold">Nodes</h1>
-          </div>
+          <h1 className="text-2xl font-bold">Nodes</h1>
           <Button onClick={openCreateDialog}>Novo Node</Button>
         </div>
 

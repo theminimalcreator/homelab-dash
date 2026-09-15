@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — testado fim-a-fim: `/login` não renderiza o sidebar (fora do route group `(app)`), `/` autenticado mostra os 5 itens + botão "Sair", `/nodes` acessível. Build local completo passou. Item extra não listado originalmente: botão de logout no rodapé do sidebar (usa `/api/logout` da issue 12).
 
 Blocked by: 08, 12
 
