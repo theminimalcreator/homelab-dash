@@ -1,4 +1,4 @@
-Status: resolved (2026-09-14) — testado com uma cópia temporária do Agent numa porta alternativa: sem header 401, header errado 401, header certo 200 com payload normal. **Código commitado mas deploy do Dev Node segurado de propósito** (ver Comments) — reiniciar o `alpine-agent` agora quebraria o card do Dev Node no dashboard ao vivo, já que ele ainda busca o Agent direto do browser sem enviar token nenhum (issue 10 ainda não trocou isso). Vai junto com o deploy das issues 07-10.
+Status: resolved (2026-09-14) — **ativado em produção**: token gerado, salvo em `nodes.auth_token` (Dev Node) via `/api/nodes/2`, colocado no `.env` do Dev Node, `alpine-agent` reiniciado. Confirmado: sem header → 401; `/api/cluster` do Master (que já manda o header desde a issue 09) continua vendo o Dev Node `online: true`. Segurado até o agregador existir de verdade — ver Comments pra histórico da decisão original de segurar.
 
 # Autenticação por token entre Master e Agents
 
