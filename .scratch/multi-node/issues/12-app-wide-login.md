@@ -1,4 +1,6 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14) — testado fim-a-fim com senha de teste: sem cookie → redirect/401, senha errada → 401, senha certa → 200 + cookie, `/api/logout` limpa o cookie e a sessão para de valer. `tsc`/`eslint` limpos.
+
+Implementado sem lib de sessão externa (mantendo a filosofia zero-dependência): o cookie é `SHA-256("homelab-dash-session-v1:" + ADMIN_PASSWORD)`, calculado via Web Crypto (funciona tanto no `middleware.ts`, que roda em Edge runtime, quanto nas rotas normais). Sem sessão server-side — rotacionar `ADMIN_PASSWORD` invalida todo cookie emitido automaticamente, de graça. Trade-off consciente: como não há revogação individual de sessão, um cookie válido continua válido até a senha mudar (aceitável pra essa escala/ameaça — uso doméstico, single-password).
 
 # Login simples protegendo o app inteiro
 
