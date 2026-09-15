@@ -10,11 +10,20 @@ const http = require('http');
 const { collectNodeStats, requestWakeLockOnce } = require('../lib/collectNodeStats');
 
 const PORT = 3001;
+const AGENT_TOKEN = process.env.AGENT_TOKEN;
+
+if (!AGENT_TOKEN) {
+  console.warn('AGENT_TOKEN not set in .env — every request will be rejected with 401.');
+}
 
 requestWakeLockOnce();
 
 http.createServer(async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  if (!AGENT_TOKEN || req.headers['x-node-token'] !== AGENT_TOKEN) {
+    res.writeHead(401, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Unauthorized' }));
+    return;
+  }
   try {
     const stats = await collectNodeStats({
       peerUrl: process.env.MASTER_URL,
