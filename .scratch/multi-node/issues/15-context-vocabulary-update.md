@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved (2026-09-14)
 
 # Atualizar vocabulário no `CONTEXT.md`
 
