@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Server, Settings, Boxes, Bell, LogOut, type LucideIcon } from "lucide-react";
+import { LayoutDashboard, Server, Settings, Boxes, Bell, Workflow, LogOut, type LucideIcon } from "lucide-react";
 import { cn } from "cn";
 
 type NavItem = {
@@ -18,6 +18,7 @@ type NavItem = {
 const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard, enabled: true },
   { label: "Nodes", href: "/nodes", icon: Server, enabled: true },
+  { label: "Automações", href: "/automations", icon: Workflow, enabled: true },
   { label: "Settings", href: "/settings", icon: Settings, enabled: false },
   { label: "Services", href: "/services", icon: Boxes, enabled: false },
   { label: "Alerts", href: "/alerts", icon: Bell, enabled: false },

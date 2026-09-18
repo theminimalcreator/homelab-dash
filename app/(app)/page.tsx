@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { NodeCard } from "@/components/node-card";
 import { ServicesTable } from "@/components/services-table";
 import { AlertsBanner } from "@/components/alerts-banner";
+import { AutomationsSummaryCard } from "@/components/automations-summary-card";
 import { computeAlerts } from "@/lib/alerts";
-import type { NodeStats } from "@/lib/types";
+import type { AutomationsOverview, NodeStats } from "@/lib/types";
 
 type ClusterEntry = {
   node: {
@@ -20,8 +21,16 @@ type ClusterEntry = {
   stats: NodeStats | null;
 };
 
+const EMPTY_AUTOMATIONS: AutomationsOverview = {
+  configured: false,
+  error: null,
+  workflows: [],
+  recentExecutions: [],
+};
+
 export default function Dashboard() {
   const [cluster, setCluster] = useState<ClusterEntry[]>([]);
+  const [automations, setAutomations] = useState<AutomationsOverview>(EMPTY_AUTOMATIONS);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -42,11 +51,24 @@ export default function Dashboard() {
       }
     }
 
+    async function fetchAutomations() {
+      try {
+        const res = await fetch("/api/automations");
+        const data = (await res.json()) as AutomationsOverview;
+        if (!cancelled) setAutomations(data);
+      } catch {
+        // Keep the last known automations state on a transient fetch failure.
+      }
+    }
+
     fetchCluster();
-    const interval = setInterval(fetchCluster, 3000);
+    fetchAutomations();
+    const clusterInterval = setInterval(fetchCluster, 3000);
+    const automationsInterval = setInterval(fetchAutomations, 5000);
     return () => {
       cancelled = true;
-      clearInterval(interval);
+      clearInterval(clusterInterval);
+      clearInterval(automationsInterval);
     };
   }, []);
 
@@ -68,6 +90,8 @@ export default function Dashboard() {
         <h1 className="text-2xl font-bold">Homelab Cluster</h1>
 
         <AlertsBanner alerts={alerts} />
+
+        <AutomationsSummaryCard automations={automations} />
 
         <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
           {cluster.map((entry) => (
