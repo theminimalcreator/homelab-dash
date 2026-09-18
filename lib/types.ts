@@ -31,3 +31,36 @@ export type NodeStats = {
   claudeCodeActive?: boolean;
   wakeLock?: { requestedAtBoot: boolean };
 };
+
+export type N8nExecutionStatus =
+  | "success"
+  | "error"
+  | "running"
+  | "waiting"
+  | "canceled"
+  | "crashed"
+  | "unknown";
+
+export type N8nExecution = {
+  id: string;
+  workflowId: string;
+  workflowName: string | null;
+  status: N8nExecutionStatus;
+  mode: string;
+  startedAt: string | null;
+  stoppedAt: string | null;
+};
+
+export type N8nWorkflowHealth = {
+  id: string;
+  name: string;
+  active: boolean;
+  lastExecution: N8nExecution | null;
+};
+
+export type AutomationsOverview = {
+  configured: boolean;
+  error: string | null;
+  workflows: N8nWorkflowHealth[];
+  recentExecutions: N8nExecution[];
+};
