@@ -27,3 +27,22 @@ export function formatUptimeMs(ms: number | null): string {
   if (ms === null) return "—";
   return formatUptime(ms / 1000);
 }
+
+export function formatRelativeTime(iso: string | null): string {
+  if (!iso) return "—";
+  const diffSec = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
+  if (diffSec < 60) return `${Math.max(diffSec, 0)}s atrás`;
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return `${diffMin}m atrás`;
+  const diffH = Math.floor(diffMin / 60);
+  if (diffH < 24) return `${diffH}h atrás`;
+  return `${Math.floor(diffH / 24)}d atrás`;
+}
+
+export function formatExecutionDuration(startedAt: string | null, stoppedAt: string | null): string {
+  if (!startedAt || !stoppedAt) return "—";
+  const ms = new Date(stoppedAt).getTime() - new Date(startedAt).getTime();
+  if (ms < 0) return "—";
+  if (ms < 1000) return `${ms}ms`;
+  return `${(ms / 1000).toFixed(1)}s`;
+}
